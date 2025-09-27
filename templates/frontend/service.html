@@ -1,0 +1,142 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area d-flex align-items-center"
+    style="background-image:url(/static/frontend/img/testimonial/test-bg.png)">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="breadcrumb-wrap text-left">
+                    <div class="breadcrumb-title">
+                        <h2>Services</h2>
+                        <div class="breadcrumb-wrap">
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'frontend:home' %}">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Services</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-area-end -->
+
+<!-- services-area -->
+<section id="services-area2" class="services-area2 pt-120  pb-90 fix">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img1.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="">Sea Freight<br> Transportation</a></h3>
+                        <a href="" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img2.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="">Road Freight<br>Transportation</a></h3>
+                        <a href="" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img3.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="">Air Freight<br>Transportation</a></h3>
+                        <a href="" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img4.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="">Warehousing<br>Transportation</a></h3>
+                        <a href="" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img5.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="">Supply Chain<br>Transportation</a></h3>
+                        <a href="" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img6.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="">Packaging<br>Transportation</a></h3>
+                        <a href="" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- services-area-end -->
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Navirego - Cargo & Logistics  HTML Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <!-- Place favicon.ico in the root directory -->
+
+		<!-- CSS here -->
+        <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/fontawesome/css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/font-flaticon/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/dripicons.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/meanmenu.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/default.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/css/responsive.css' %}">
+    </head>
+    <body>
+        {% include './includes/navbar.html' %}
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        {% include './includes/footer.html' %}
+
+		<!-- JS here -->
+        <script src="{% static 'frontend/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+        <script src="{% static 'frontend/js/vendor/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'frontend/js/popper.min.js' %}"></script>
+        <script src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'frontend/js/slick.min.js' %}"></script>
+        <script src="{% static 'frontend/js/ajax-form.js' %}"></script>
+        <script src="{% static 'frontend/js/paroller.js' %}"></script>
+        <script src="{% static 'frontend/js/wow.min.js' %}"></script>
+        <script src="{% static 'frontend/js/js_isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'frontend/js/imagesloaded.min.js' %}"></script>
+        <script src="{% static 'frontend/js/parallax.min.js' %}"></script>
+         <script src="{% static 'frontend/js/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'frontend/js/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'frontend/js/jquery.scrollUp.min.js' %}"></script>
+        <script src="{% static 'frontend/js/jquery.meanmenu.min.js' %}"></script>
+        <script src="{% static 'frontend/js/parallax-scroll.js' %}"></script>
+        <script src="{% static 'frontend/js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'frontend/js/element-in-view.js' %}"></script>
+        <script src="{% static 'frontend/js/main.js' %}"></script>
+    </body>
+</html>

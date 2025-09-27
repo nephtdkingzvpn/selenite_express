@@ -1,0 +1,920 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- search-popup -->
+<div class="modal fade bs-example-modal-lg search-bg popup1" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content search-popup">
+            <div class="text-center">
+                <a href="#" class="close2" data-dismiss="modal" aria-label="Close">x close</a>
+            </div>
+            <div class="row search-outer">
+                <div class="col-md-11"><input type="text" placeholder="Search for products..." /></div>
+                <div class="col-md-1 text-right"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /search-popup -->
+<!-- slider-area -->
+<section id="home" class="slider-area slider-four fix p-relative">
+
+    <div class="slider-active">
+        <div class="single-slider slider-bg d-flex align-items-center">
+            <div class="image-layer" style="background: url(/static/frontend/img/slider/slider_img01.jpg)"></div>
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="slider-content s-slider-content mb-25">
+                            <h5 data-animation="fadeInDown" data-delay=".4s">Smart & Flexible Logistics</h5>
+                            <h2 data-animation="fadeInUp" data-delay=".4s">Reliable Cargo Solutions, Worldwide</h2>
+                            <p data-animation="fadeInUp" data-delay=".6s">
+                                From express shipping to global freight — we deliver with speed, security, and
+                                precision. Discover seamless logistics tailored to your business needs.
+                            </p>
+
+                            <div class="slider-btn mt-30 ">
+                                <a href="services.html" class="btn ss-btn mr-15">Track Shipment</a>
+                                <!-- <a href="contact.html" class="btn ss-btn active mr-15">Contact Us</a> -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5">
+                        <a class="video-i popup-video" href="https://www.youtube.com/watch?v=2xc9YKdlLW0">
+                            <img src="{% static 'frontend/img/icon/play-header.png' %}" alt="slider_img05">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-slider slider-bg d-flex align-items-center">
+            <div class="image-layer" style="background: url(/static/frontend/img/slider/slider_img02.jpg)"></div>
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="slider-content s-slider-content mb-25">
+                            <h5 data-animation="fadeInDown" data-delay=".4s">Smart & Flexible Logistics</h5>
+                            <h2 data-animation="fadeInUp" data-delay=".4s">Worldwide Cargo Solutions</h2>
+                            <p data-animation="fadeInUp" data-delay=".6s">
+                                From express shipping to global freight — we deliver with speed, security, and
+                                precision. Discover seamless logistics tailored to your business needs.
+                            </p>
+                            <div class="slider-btn mt-30">
+                                <a href="services.html" class="btn ss-btn mr-15">Read More</a>
+                                <!-- <a href="contact.html" class="btn ss-btn active mr-15">Contact Us</a> -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5">
+                        <a class="video-i popup-video" href="{https://www.youtube.com/watch?v=2xc9YKdlLW0}">
+                            <img src="{% static 'frontend/img/icon/play-header.png' %}" alt="slider_img05">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</section>
+<!-- slider-area-end -->
+
+<!-- features-area -->
+<section id="features-services" class="features-services-area about-p p-relative">
+    <div class="container">
+        <div class="row">
+            <!-- Warehousing Services -->
+            <div class="col-lg-3 col-md-12">
+                <div class="features-box mb-30">
+                    <div class="features-icon">
+                        <img src="{% static 'frontend/img/icon/se-icon1.png' %}" alt="img">
+                    </div>
+                    <div class="features-content">
+                        <h4><a href="services-detail.html">Warehousing Services</a></h4>
+                        <p>Secure, scalable storage solutions with real-time inventory tracking to support your supply
+                            chain efficiently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Air Freight Services -->
+            <div class="col-lg-3 col-md-12">
+                <div class="features-box mb-30">
+                    <div class="features-icon">
+                        <img src="{% static 'frontend/img/icon/se-icon2.png' %}" alt="img">
+                    </div>
+                    <div class="features-content">
+                        <h4><a href="services-detail.html">Air Freight Services</a></h4>
+                        <p>Fast and reliable air cargo services to ensure your shipments reach global destinations on
+                            time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ocean Freight Services -->
+            <div class="col-lg-3 col-md-12">
+                <div class="features-box mb-30">
+                    <div class="features-icon">
+                        <img src="{% static 'frontend/img/icon/se-icon3.png' %}" alt="img">
+                    </div>
+                    <div class="features-content">
+                        <h4><a href="services-detail.html">Ocean Freight Services</a></h4>
+                        <p>Cost-effective and dependable sea freight solutions for large-scale international shipping
+                            needs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Road Freight Services -->
+            <div class="col-lg-3 col-md-12">
+                <div class="features-box mb-30">
+                    <div class="features-icon">
+                        <img src="{% static 'frontend/img/icon/se-icon4.png' %}" alt="img">
+                    </div>
+                    <div class="features-content">
+                        <h4><a href="services-detail.html">Road Freight Services</a></h4>
+                        <p>Flexible domestic and cross-border trucking services, ensuring timely deliveries across all
+                            road networks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about-area-end -->
+
+<!-- about-area -->
+<section id="about" class="about-area about-p pt-120 pb-120 p-relative">
+    <div class="container">
+        <div class="row">
+            <!-- Image Column -->
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="s-about-img p-relative wow fadeInLeft animated" data-animation="fadeInLeft"
+                    data-delay=".4s">
+                    <img src="{% static 'frontend/img/features/about_img.png' %}" alt="About Selenite Express">
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="about-content s-about-content wow fadeInRight animated" data-animation="fadeInRight"
+                    data-delay=".4s">
+                    <div class="about-title second-title pb-25">
+                        <h5>
+                            <span class="line">
+                                <img src="{% static 'frontend/img/bg/circle_right.png' %}" alt="Decorative circle">
+                            </span>
+                            About Us
+                        </h5>
+                        <h2>Delivering Trust, One Package at a Time</h2>
+                    </div>
+
+                    <p>
+                        At <strong>Selenite Express</strong>, we're more than just a courier service, we're your trusted
+                        logistics partner.
+                        With a focus on speed, security, and reliability, we specialize in delivering packages of all
+                        sizes across local,
+                        national, and international routes. Our mission is simple: to provide seamless delivery
+                        solutions that help
+                        businesses and individuals stay connected.
+                    </p>
+
+                    <ul class="mt-30 mb-30">
+                        <li>
+                            <div class="icon"><i class="fal fa-check"></i></div>
+                            <div class="text">
+                                <p>Fast, safe, and on-time delivery—every time.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fal fa-check"></i></div>
+                            <div class="text">
+                                <p>End-to-end tracking with real-time updates.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fal fa-check"></i></div>
+                            <div class="text">
+                                <p>Dedicated customer support and logistics expertise.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="slider-btn">
+                        <a href="about.html" class="btn ss-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about-area-end -->
+
+
+<!-- services-area -->
+<section id="services-area2" class="services-area2 pt-120 pb-90 fix"
+    style="background: url(/static/frontend/img/bg/service-bg.png) no-repeat;background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title center-align mb-50 text-center">
+                    <h5><span class="line2"> <img src="{% static 'frontend/img/bg/circle_right.png' %}"
+                                alt="circle_right"></span> Our Services
+                        <span class="line3"> <img src="{% static 'frontend/img/bg/circle_right.png' %}"
+                                alt="circle_left"></span>
+                    </h5>
+                    <h2>
+                        Our Trusted Services
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row home-blog-active">
+
+            <div class="col-lg-4 col-md-12">
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img1.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="services-detail.html">Sea Freight<br> Transportation</a></h3>
+                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+
+
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img2.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="services-detail.html">Road Freight<br>Transportation</a></h3>
+                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img3.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="services-detail.html">Air Freight<br>Transportation</a></h3>
+                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="services-box2 mb-30">
+                    <div class="services-img">
+                        <img src="{% static 'frontend/img/services/services-img2.png' %}" alt="circle_right">
+                    </div>
+                    <div class="services-content2">
+                        <h3><a href="services-detail.html">Road Freight<br>Transportation</a></h3>
+                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- services-area-end -->
+
+
+<!-- booking-area -->
+<section id="booking" class="booking-area contact-bg pt-120 pb-120 p-relative fix"
+    style="background: url(/static/frontend/img/bg/booking-bg.png) no-repeat;background-size: cover;">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 col-md-12">
+                <div class="booking-content-box">
+                    <div class="section-title second-title pb-25">
+                        <h5>
+                            <span class="line">
+                                <img src="{% static 'frontend/img/bg/circle_left_w.png' %}" alt="Decorative circle">
+                            </span>
+                            Request a Quote
+                        </h5>
+                        <h2>Book Your Cargo Shipment with Confidence</h2>
+                    </div>
+                    <p>
+                        Need to ship a package or cargo quickly and securely? Selenite Express offers reliable,
+                        affordable shipping solutions tailored to your needs. Reach out today and get a personalized
+                        quote in minutes.
+                    </p>
+
+                    <a href="#" class="btn ss-btn">Get in Touch</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="booking-contact-box">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home3">Request A Quote</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Track & Trace</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home3" class="tab-pane fade show active">
+                            <form action="" method="post" class="contact-form mt-30">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-name mb-30">
+                                            <input type="text" id="firstn" name="firstn" placeholder="First Name"
+                                                class="form-control" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-subject mb-30">
+                                            <input type="text" id="email" name="email" placeholder="Eamil"
+                                                class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-subject mb-30">
+                                            <input type="text" id="phone" name="phone" placeholder="Phone No."
+                                                class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-option mb-30">
+                                            <select name="services" id="sr" class="form-control">
+                                                <option value="sports-massage">Departure</option>
+                                                <option value="sports-massage">Departure 01</option>
+                                                <option value="hot-stone-message">Departure 02</option>
+                                                <option value="facil-therophy">Departure 03</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-option mb-30">
+                                            <select name="services" id="dr" class="form-control">
+                                                <option value="sports-massage">Delivery</option>
+                                                <option value="sports-massage">Delivery 01</option>
+                                                <option value="hot-stone-message">Delivery 02</option>
+                                                <option value="facil-therophy">Delivery 03</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-option mb-30">
+                                            <select name="services" id="wd" class="form-control">
+                                                <option value="sports-massage">Width</option>
+                                                <option value="sports-massage">Width 30</option>
+                                                <option value="hot-stone-message">Width 40</option>
+                                                <option value="facil-therophy">Width 50</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-option mb-30">
+                                            <select name="services" id="ht" class="form-control">
+                                                <option value="sports-massage">Height</option>
+                                                <option value="sports-massage">Height 10</option>
+                                                <option value="hot-stone-message">Height 20</option>
+                                                <option value="facil-therophy">Height 30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+
+                                        <div class="slider-btn">
+                                            <button class="btn ss-btn" data-animation="fadeInRight"
+                                                data-delay=".8s">Submit Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            <form action="" method="post" class="contact-form mt-30">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-option mb-15">
+                                            <select name="services" id="pr" class="form-control">
+                                                <option value="sports-massage">Prsonal Data</option>
+                                                <option value="sports-massage">Sports Massage</option>
+                                                <option value="hot-stone-message">Hot Stone Message</option>
+                                                <option value="facil-therophy">Facil & Therophy</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-message mb-30">
+                                            <textarea name="message" id="message" cols="30" rows="10"
+                                                placeholder="Tracking Number"></textarea>
+                                        </div>
+                                        <div class="slider-btn">
+                                            <button class="btn ss-btn" data-animation="fadeInRight"
+                                                data-delay=".8s">Submit Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- booking-area-end -->
+
+<!-- skill-area -->
+<section id="skill" class="skill-area pt-120 pb-240 p-relative"
+    style="background: url(/static/frontend/img/bg/service-bg.png) no-repeat;background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 pr-30">
+                <div class="skills-content s-about-content">
+                    <div class="skills">
+                        <div class="skill mb-50">
+                            <div class="skill-name">Sea Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-50">
+                            <div class="skill-name">Road Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-50">
+                            <div class="skill-name">Air Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-50">
+                            <div class="skill-name">Other Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="60"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="skills-content s-about-content">
+                    <div class="skills-title pb-20">
+                        <h5>
+                            <span class="line">
+                                <img src="{% static 'frontend/img/bg/circle_right.png' %}" alt="Decorative circle">
+                            </span>
+                            Our Skills
+                        </h5>
+                        <h2>Professional Expertise You Can Rely On</h2>
+                    </div>
+                    <p>
+                        With years of hands-on experience in cargo handling, logistics, and time-sensitive deliveries,
+                        the Selenite Express team brings unmatched expertise to every shipment. Our skilled
+                        professionals ensure safe, efficient, and on-time transportation across all delivery points.
+                    </p>
+                    <div class="slider-btn mt-15">
+                        <a href="contact.html" class="btn ss-btn">Track Shipment</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- skill-area-end -->
+
+<!-- video-area -->
+<section id="video" class="video-area p-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="s-video-wrap" style="background-image:url(/static/frontend/img/bg/video-img.png)">
+                    <div class="s-video-content">
+                        <h6><a href="" class="popup-video mb-50"><img
+                                    src="{% static 'frontend/img/bg/play-button.png' %}" alt="circle_right"></a></h6>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- video-area-end -->
+
+<!-- counter-area -->
+<div class="counter-area p-relative pb-90" style="background-image:url(/static/frontend/img/bg/counter-bg.png)">
+    <div class="container">
+
+        <div class="row p-relative">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn01.png' %}" alt="img">
+                    </div>
+
+                    <div class="counter p-relative">
+                        <span class="count">9878</span><small>+</small>
+                        <p>Product Delivery</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn02.png' %}" alt="img">
+                    </div>
+                    <div class="counter p-relative">
+                        <span class="count">5878</span><small>+</small>
+                        <p>World Wide Branch</p>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn03.png' %}" alt="img">
+                    </div>
+
+                    <div class="counter p-relative">
+                        <span class="count">500</span><small>+</small>
+                        <p>Mordern Transport</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn04.png' %}" alt="img">
+                    </div>
+
+                    <div class="counter p-relative">
+                        <span class="count">900</span><small>+</small>
+                        <p>Awards Winning</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- counter-area-end -->
+
+<!-- team-area -->
+<section id="team" class="team-area2 pt-120 pb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 p-relative">
+                <div class="section-title center-align mb-50 text-center">
+                    <h5><span class="line2"> <img src="{% static 'frontend/img/bg/circle_right.png' %}"
+                                alt="circle_right"></span> Our team
+                        <span class="line3"> <img src="{% static 'frontend/img/bg/circle_right.png' %}"
+                                alt="circle_left"></span>
+                    </h5>
+                    <h2>
+                        Our Expert Team
+                    </h2>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row home-blog-active2">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-team mb-30 ">
+                    <div class="team-thumb  p-relative">
+                        <div class="brd">
+                            <img src="{% static 'frontend/img/team/team_img01.png' %}" alt="img">
+                        </div>
+
+                        <div class="dropdown">
+                            <a class="xbtn" href="#" data-toggle="dropdown">
+                                +
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="team-social mt-15">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="team-info">
+                        <div class="text">
+                            <h4><a href="team-details.html">Nashid Martines</a></h4>
+                            <span>Founder & Chief Strategy Officer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-team mb-30 ">
+                    <div class="team-thumb p-relative">
+                        <div class="brd">
+                            <img src="{% static 'frontend/img/team/team_img02.png' %}" alt="img">
+                        </div>
+
+                        <div class="dropdown">
+                            <a class="xbtn" href="#" data-toggle="dropdown">
+                                +
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="team-social mt-15">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="team-info">
+                        <div class="text">
+                            <h4><a href="team-details.html">Konne Backfield</a></h4>
+                            <span>Chief Executive Officer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-team mb-30 ">
+                    <div class="team-thumb p-relative">
+                        <div class="brd">
+                            <img src="{% static 'frontend/img/team/team_img03.png' %}" alt="img">
+                        </div>
+
+                        <div class="dropdown">
+                            <a class="xbtn" href="#" data-toggle="dropdown">
+                                +
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="team-social mt-15">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="team-info">
+                        <div class="text">
+                            <h4><a href="team-details.html">Hackson Willing</a></h4>
+                            <span>IT & Logistics Systems Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-team mb-30 ">
+                    <div class="team-thumb p-relative">
+                        <div class="brd">
+                            <img src="{% static 'frontend/img/team/team_img06.png' %}" alt="img">
+                        </div>
+
+                        <div class="dropdown">
+                            <a class="xbtn" href="#" data-toggle="dropdown">
+                                +
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="team-social mt-15">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="team-info">
+                        <div class="text">
+                            <h4><a href="team-details.html">James Grady</a></h4>
+                            <span>Fleet Operations Manager</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-team mb-30 ">
+                    <div class="team-thumb p-relative">
+                        <div class="brd">
+                            <img src="{% static 'frontend/img/team/team_img08.png' %}" alt="img">
+                        </div>
+
+
+                        <div class="dropdown">
+                            <a class="xbtn" href="#" data-toggle="dropdown">
+                                +
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="team-social mt-15">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="team-info">
+                        <div class="text">
+                            <h4><a href="team-details.html">Rosalina D. William</a></h4>
+                            <span>Customer Experience Lead</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- team-area-end -->
+
+<!-- blog-area -->
+<section id="blog" class="blog-area p-relative pt-120 pb-90 fix">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="section-title center-align mb-50 text-center">
+                    <h5>
+                        <span class="line2">
+                            <img src="{% static 'frontend/img/bg/circle_right.png' %}" alt="circle_right">
+                        </span>
+                        Our Blog
+                        <span class="line3">
+                            <img src="{% static 'frontend/img/bg/circle_right.png' %}" alt="circle_left">
+                        </span>
+                    </h5>
+                    <h2>Latest News & Logistics Insights</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Blog Post 1 -->
+            <div class="col-lg-4 col-md-12">
+                <div class="single-post2 mb-30">
+                    <div class="blog-thumb2">
+                        <a href="blog-details.html">
+                            <img src="{% static 'frontend/img/blog/inner_b1.jpg' %}" alt="blog image">
+                        </a>
+                    </div>
+                    <div class="blog-content2">
+                        <div class="b-meta">
+                            <div class="meta-info">
+                                <ul>
+                                    <li><i class="fal fa-user"></i> By Admin</li>
+                                    <li><i class="fal fa-calendar-alt"></i> September 20, 2025</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4><a href="blog-details.html">How Same-Day Delivery is Changing E-Commerce Logistics</a></h4>
+                        <p>Explore how businesses are using same-day delivery services to meet rising customer
+                            expectations and boost retention.</p>
+                        <div class="blog-btn"><a href="blog-details.html">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="col-lg-4 col-md-12">
+                <div class="single-post2 mb-30">
+                    <div class="blog-thumb2">
+                        <a href="blog-details.html">
+                            <img src="{% static 'frontend/img/blog/inner_b2.jpg' %}" alt="blog image">
+                        </a>
+                    </div>
+                    <div class="blog-content2">
+                        <div class="b-meta">
+                            <div class="meta-info">
+                                <ul>
+                                    <li><i class="fal fa-user"></i> By Logistics Team</li>
+                                    <li><i class="fal fa-calendar-alt"></i> September 14, 2025</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4><a href="blog-details.html">5 Common Shipping Mistakes & How to Avoid Them</a></h4>
+                        <p>From incorrect labeling to missed pickups, avoid costly errors with these practical courier
+                            shipping tips.</p>
+                        <div class="blog-btn"><a href="blog-details.html">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="col-lg-4 col-md-12">
+                <div class="single-post2 mb-30">
+                    <div class="blog-thumb2">
+                        <a href="blog-details.html">
+                            <img src="{% static 'frontend/img/blog/inner_b3.jpg' %}" alt="blog image">
+                        </a>
+                    </div>
+                    <div class="blog-content2">
+                        <div class="b-meta">
+                            <div class="meta-info">
+                                <ul>
+                                    <li><i class="fal fa-user"></i> By Sarah Thompson</li>
+                                    <li><i class="fal fa-calendar-alt"></i> September 5, 2025</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4><a href="blog-details.html">The Role of Technology in Modern Courier Services</a></h4>
+                        <p>Learn how GPS tracking, automated dispatch, and customer portals are transforming the courier
+                            industry from the inside out.</p>
+                        <div class="blog-btn"><a href="blog-details.html">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- blog-area-end -->
+
+<!-- brand-area -->
+<div class="brand-area pt-60 pb-60" style="background: url(/static/frontend/img/bg/service-bg.png) no-repeat;background-size: cover;">
+    <div class="container">
+        <div class="row brand-active">
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo1.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo2.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo3.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo4.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo5.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo6.png' %}" alt="img">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- brand-area-end -->
+
+{% endblock %}

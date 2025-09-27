@@ -1,0 +1,115 @@
+{% load static %}
+<!-- header -->
+<header class="header-area header-three">
+    <div class="header-top second-header d-none d-md-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-4 d-none d-lg-block">
+                    <div class="header-social">
+                        <span>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-youtube"></i></a>
+                        </span>
+                        <!--  /social media icon redux -->
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 text-right d-none d-lg-block">
+                    <div class="header-cta">
+                        <ul>
+
+                            <li>
+                                <i class="icon far fa-clock"></i>
+                                <span>Mon - Sat 8:00 - 18:00</span>
+                            </li>
+                            <!-- <li>
+                                <i class="icon fal fa-envelope"></i>
+                                <span>info@example.com</span>
+                            </li> -->
+                            <li>
+                                <i class="icon fal fa-phone"></i>
+                                <span>+91-7052-101-786</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="header-sticky" class="menu-area">
+        <div class="container">
+            <div class="second-menu">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="logo">
+                            <a href="{% url 'frontend:home' %}"><img src="{% static 'frontend/img/logo/logo.png' %}" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8">
+
+                        <div class="main-menu text-right text-xl-right">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li class="has-sub">
+                                        <a href="{% url 'frontend:home' %}">Home</a>
+                                    </li>
+                                    <li class="has-sub"><a href="{% url 'frontend:about' %}">About Us</a></li>
+                                    <!-- <li class="has-sub"><a href="{% url 'frontend:home' %}">Pages</a>
+                                    </li> -->
+                                    <li class="has-sub">
+                                        <a href="{% url 'frontend:service' %}">Services</a>
+                                    </li>
+                                    <li class="has-sub"><a href="{% url 'frontend:contact' %}">Contact</a></li>
+                                    <li class="has-sub">
+                                        <a href="{% url 'frontend:home' %}">Track Shipment</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-1 col-lg-1 text-right d-none d-lg-block mt-30 mb-30 text-right text-xl-right">
+                        <a href="#" class="menu-tigger"><img src="{% static 'frontend/img/icon/toggle-menu.png' %}" alt="top-m-icon.png"></a>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+<!-- offcanvas-area -->
+<div class="offcanvas-menu">
+    <span class="menu-close"><i class="fas fa-times"></i></span>
+    <form role="search" method="post" id="searchform" class="searchform" action="">
+        <input type="text" name="s" id="search" value="" placeholder="Search" />
+        <button><i class="fa fa-search"></i></button>
+    </form>
+
+
+    <div id="cssmenu3" class="menu-one-page-menu-container">
+        <ul id="menu-one-page-menu-2" class="menu">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{% url 'frontend:home' %}">Home</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{% url 'frontend:about' %}">About Us</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{% url 'frontend:service' %}">Services</a>
+            </li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{% url 'frontend:contact' %}">Contact</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{% url 'frontend:home' %}">Track Shipment</a></li>
+        </ul>
+    </div>
+
+    <div id="cssmenu2" class="menu-one-page-menu-container">
+        <ul id="menu-one-page-menu-1" class="menu">
+            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{% url 'frontend:home' %}"><span>+8 12
+                        3456897</span></a></li> -->
+            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                    href="{% url 'frontend:home' %}"><span>info@example.com</span></a></li> -->
+        </ul>
+    </div>
+</div>
+<div class="offcanvas-overly"></div>
+<!-- offcanvas-end -->
