@@ -1,0 +1,166 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Map height and container styles */
+    #shipment-map {
+        height: 400px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .map-card {
+        height: 100%;
+    }
+</style>
+
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area d-flex align-items-center"
+         style="background-image:url(/static/frontend/img/testimonial/test-bg.png)">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="breadcrumb-wrap text-left">
+                    <div class="breadcrumb-title">
+                        <h2>Track Shipment</h2>
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'frontend:home' %}">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Track shipment</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-area-end -->
+
+<!-- tracking form -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="contact-field p-relative c-name mb-30">
+                            <input type="text" id="firstn" name="tracking_code" placeholder="Enter Tracking Code" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger fw-bold">Track Shipment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if shipments %}
+<!-- tracking result start -->
+<div class="container">
+    <h5 class="text-center">Here is the latest update on your shipment:{{shipment.tracking_number}}</h5>
+    <hr class="mt-0">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            {% include './includes/tracking_result.html' %}
+        </div>
+        <!-- <div class="col-md-6">
+            <div class="card map-card">
+                <div class="card-body">
+                    <div id="shipment-map"></div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            {% for shipment in shipments %}
+            <div class="card bg-secondary border-0 p-md-1 mb-4">
+                <!-- sender info -->
+                <div class="row sender-info">
+                    <div class="col-md-5 mb-3 mt-3 mt-md-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <p><strong>Sender Name: </strong>{{ shipment.sender_name }}</p>
+                                <p><strong>Location: </strong>{{ shipment.sender_address }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Receiver Name: </strong>{{ shipment.receiver_name }}</p>
+                                        {% if shipment.receiver_address %}
+                                        <p><strong>Address: </strong>{{ shipment.receiver_address }}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% if shipment.receiver_email %}
+                                        <p><strong>Email: </strong>{{ shipment.receiver_email }}</p>
+                                        {% endif %}
+                                        {% if shipment.receiver_phone %}
+                                        <p><strong>Phone: </strong>{{ shipment.receiver_phone }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table_will_space">
+                        <tbody>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Tracking Code:</td>
+                                <td class="border-0 bg-light">{{ shipment.tracking_number }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Content:</td>
+                                <td class="border-0 bg-light">{{ shipment.content }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Weight:</td>
+                                <td class="border-0 bg-light">{{ shipment.weight }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Shipped On:</td>
+                                <td class="border-0 bg-light">{{ shipment.shipping_date }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Shipment Type:</td>
+                                <td class="border-0 bg-light">{{ shipment.shipping_type }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Origin Office:</td>
+                                <td class="border-0 bg-light">{{ shipment.origin_office }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Destination Office:</td>
+                                <td class="border-0 bg-light">{{ shipment.destination_office }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Status:</td>
+                                <td class="border-0 bg-success text-white">{{ latest_update.status }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- tracking result end -->
+{% endif %}
+
+
+{% endblock %}

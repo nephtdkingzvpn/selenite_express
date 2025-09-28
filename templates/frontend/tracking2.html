@@ -1,0 +1,445 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    #shipment-map {
+        height: 400px;  /* or whatever height you want */
+        width: 100%;
+        margin-top: 20px;
+    }
+</style>
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area d-flex align-items-center"
+    style="background-image:url(/static/frontend/img/testimonial/test-bg.png)">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="breadcrumb-wrap text-left">
+                    <div class="breadcrumb-title">
+                        <h2>Track Shipment</h2>
+                        <div class="breadcrumb-wrap">
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'frontend:home' %}">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Track shipment</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-area-end -->
+
+<!-- tracking form -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="contact-field p-relative c-name mb-30">
+                            <input type="text" id="firstn" name="tracking_code" placeholder="Enter Tracking Code"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-danger fw-bold">Track Shipment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if shipments %}
+<!-- tracking result start -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {% include './includes/tracking_result.html' %}
+        </div>
+        <div class="col-md-6">
+            <div class="card map-card">
+                <div class="card-body">
+                    <div id="shipment-map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            {% for shipment in shipments %}
+            <div class="card bg-secondary border-0 p-md-1">
+                <!-- sender info -->
+                <div class="row sender-info">
+                    <div class="col-md-5  mb-3 mt-3 mt-md-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <p><strong>Sender Name: </strong>{{shipment.sender_name}}</p>
+                                <p><strong>Location: </strong>{{shipment.sender_address}} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+
+                        </div> -->
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Receiver Name: </strong>{{shipment.receiver_name}}</p>
+                                        {% if shipment.receiver_address %}
+                                        <p><strong>Address: </strong>{{shipment.receiver_address}} </p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% if shipment.receiver_email %}
+                                        <p><strong>Email: </strong>{{shipment.receiver_email}} </p>
+                                        {% endif %}
+                                        {% if shipment.receiver_phone %}
+                                        <p><strong>Phone: </strong>{{shipment.receiver_phone}} </p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table_will_space">
+                        <tbody>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold">Tracking Code:</td>
+                                <td class="border-0 bg-light mb-3">{{shipment.tracking_number}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Content:</td>
+                                <td class="border-0 bg-light col-7">{{shipment.content}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Weight:</td>
+                                <td class="border-0 bg-light col-7">{{shipment.weight}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Shipped On:</td>
+                                <td class="border-0 bg-light col-7">{{shipment.shipping_date}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Shipment Type:</td>
+                                <td class="border-0 bg-light col-7">{{shipment.shipping_type}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Origin Office:</td>
+                                <td class="border-0 bg-light col-7">{{shipment.origin_office}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Destination Office:</td>
+                                <td class="border-0 bg-light col-7">{{shipment.destination_office}}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-secondary border-0 fw-bold col-5">Status:</td>
+                                <td class="border-0 bg-success text-white col-7">{{latest_update.status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- tracking result end -->
+
+{% else %}
+<!-- skill-area -->
+<section id="skill" class="skill-area pt-120 pb-240 p-relative"
+    style="background: url(/static/frontend/img/bg/service-bg.png) no-repeat;background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 pr-30">
+                <div class="skills-content s-about-content">
+                    <div class="skills">
+                        <div class="skill mb-50">
+                            <div class="skill-name">Sea Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-50">
+                            <div class="skill-name">Road Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-50">
+                            <div class="skill-name">Air Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-50">
+                            <div class="skill-name">Other Freight</div>
+                            <div class="skill-bar">
+                                <div class="skill-per" id="60"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="skills-content s-about-content">
+                    <div class="skills-title pb-20">
+                        <h5>
+                            <span class="line">
+                                <img src="{% static 'frontend/img/bg/circle_right.png' %}" alt="Decorative circle">
+                            </span>
+                            Our Skills
+                        </h5>
+                        <h2>Professional Expertise You Can Rely On</h2>
+                    </div>
+                    <p>
+                        With years of hands-on experience in cargo handling, logistics, and time-sensitive deliveries,
+                        the Selenite Express team brings unmatched expertise to every shipment. Our skilled
+                        professionals ensure safe, efficient, and on-time transportation across all delivery points.
+                    </p>
+                    <div class="slider-btn mt-15">
+                        <a href="contact.html" class="btn ss-btn">Track Shipment</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- skill-area-end -->
+
+<!-- video-area -->
+<section id="video" class="video-area p-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="s-video-wrap" style="background-image:url(/static/frontend/img/bg/video-img.png)">
+                    <div class="s-video-content">
+                        <h6><a href="" class="popup-video mb-50"><img
+                                    src="{% static 'frontend/img/bg/play-button.png' %}" alt="circle_right"></a></h6>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- video-area-end -->
+
+<!-- counter-area -->
+<div class="counter-area p-relative pb-90" style="background-image:url(/static/frontend/img/bg/counter-bg.png)">
+    <div class="container">
+
+        <div class="row p-relative">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn01.png' %}" alt="img">
+                    </div>
+
+                    <div class="counter p-relative">
+                        <span class="count">9878</span><small>+</small>
+                        <p>Product Delivery</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn02.png' %}" alt="img">
+                    </div>
+                    <div class="counter p-relative">
+                        <span class="count">5878</span><small>+</small>
+                        <p>World Wide Branch</p>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn03.png' %}" alt="img">
+                    </div>
+
+                    <div class="counter p-relative">
+                        <span class="count">500</span><small>+</small>
+                        <p>Mordern Transport</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="single-counter wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <div class="icon">
+                        <img src="{% static 'frontend/img/icon/cn-iocn04.png' %}" alt="img">
+                    </div>
+
+                    <div class="counter p-relative">
+                        <span class="count">900</span><small>+</small>
+                        <p>Awards Winning</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- counter-area-end -->
+
+
+{% endif %}
+<!-- brand-area -->
+<div class="brand-area pt-60 pb-60"
+    style="background: url(/static/frontend/img/bg/service-bg.png) no-repeat;background-size: cover;">
+    <div class="container">
+        <div class="row brand-active">
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo1.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo2.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo3.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo4.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo5.png' %}" alt="img">
+                </div>
+            </div>
+            <div class="col-xl-2">
+                <div class="single-brand">
+                    <img src="{% static 'frontend/img/brand/b-logo6.png' %}" alt="img">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- brand-area-end -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{{ live_updates_json|default:"[]"|json_script:"live_updates" }}
+
+<script>
+    const updates = JSON.parse(document.getElementById('live_updates').textContent);
+
+    const map = L.map('shipment-map').setView([0, 0], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const latlngs = [];
+
+    // Define custom icons
+    const airplaneIcon = L.icon({
+        iconUrl: 'https://img.icons8.com/emoji/48/airplane-emoji.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    const truckIcon = L.icon({
+        iconUrl: 'https://img.icons8.com/emoji/48/delivery-truck.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    updates.forEach((update, index) => {
+        const latlng = [update.latitude, update.longitude];
+        latlngs.push(latlng);
+
+        let marker;
+        let popupContent = `<b>${update.status}</b><br>${update.remark || ''}<br>${new Date(update.created_on).toLocaleDateString()}`;
+
+        if (index === 0) {
+            // Origin - airplane icon
+            marker = L.marker(latlng, { icon: airplaneIcon }).addTo(map);
+            popupContent = `<b>Origin:</b> ${popupContent}`;
+        } else if (index === updates.length - 1) {
+            // Latest/current location - truck icon
+            marker = L.marker(latlng, { icon: truckIcon }).addTo(map);
+            popupContent = `<b>Current Location:</b> ${popupContent}`;
+        } else {
+            // Other points - blue circle markers
+            marker = L.circleMarker(latlng, {
+                color: 'blue',
+                radius: 6,
+                fillOpacity: 0.7
+            }).addTo(map);
+        }
+
+        marker.bindPopup(popupContent);
+
+        marker.bindTooltip(update.country, {
+            permanent: false,
+            direction: 'top',
+            offset: [0, -10],
+        });
+    });
+
+    // Draw polyline for the route
+    const polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+
+    // Zoom map to fit all points with padding
+    const bounds = L.latLngBounds(latlngs);
+    map.fitBounds(bounds, { padding: [50, 50] });
+
+    // Add legend to map
+    const legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function (map) {
+        const div = L.DomUtil.create('div', 'info legend');
+        div.style.background = 'white';
+        div.style.padding = '6px';
+        div.style.borderRadius = '5px';
+        div.style.boxShadow = '0 0 10px rgba(0,0,0,0.3)';
+        div.style.fontSize = '14px';
+        div.style.lineHeight = '24px';
+
+        div.innerHTML = `
+            <div><img src="https://img.icons8.com/emoji/24/airplane-emoji.png" style="vertical-align: middle;"/> Origin</div>
+            <div><span style="display: inline-block; width: 12px; height: 12px; background: blue; border-radius: 50%; margin-right: 6px;"></span> In Transit</div>
+            <div><img src="https://img.icons8.com/emoji/24/delivery-truck.png" style="vertical-align: middle;"/> Current Location</div>
+        `;
+        return div;
+    };
+
+    legend.addTo(map);
+</script>
+{% endblock %}

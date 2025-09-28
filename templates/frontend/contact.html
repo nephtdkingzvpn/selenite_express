@@ -76,17 +76,18 @@
                         </h2>
 
                     </div>
-
-                    <form action="mail.php" method="post" class="contact-form mt-30">
+                    {% include '../account/include/alert.html' %}
+                    <form action="" method="post" class="contact-form mt-30">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="contact-field p-relative c-name mb-30">
-                                    <input type="text" id="firstn" name="firstn" placeholder="Full Name" required>
+                                    <input type="text" id="firstn" name="fullname" placeholder="Full Name" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="contact-field p-relative c-subject mb-30">
-                                    <input type="text" id="email" name="email" placeholder="Eamil" required>
+                                    <input type="text" id="email" name="email" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -101,7 +102,7 @@
                                         placeholder="Write comments"></textarea>
                                 </div>
                                 <div class="slider-btn">
-                                    <button class="btn ss-btn active" data-animation="fadeInRight"
+                                    <button type="submit" class="btn ss-btn active" data-animation="fadeInRight"
                                         data-delay=".8s">Submint Now</button>
                                 </div>
                             </div>
@@ -118,15 +119,12 @@
 
 </section>
 <!-- contact-area-end -->
+
 <!-- map-area-end -->
 <div class="map fix">
     <div class="container-flud">
         <div class="row">
             <div class="col-lg-12">
-                <!-- <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212867.83634504632!2d-112.24455686962897!3d33.52582710700138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b743829374b03%3A0xabaac255b1e43fbe!2sPlexus%20Worldwide!5e0!3m2!1sen!2sin!4v1618567685329!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe> -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.7933193524714!2d-111.88937882517482!3d33.5587458847395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0acbdf0dd937%3A0x1cfeeb2d2e90a554!2s9145%20E%20Pima%20Center%20Pkwy%2C%20Scottsdale%2C%20AZ%2085258%2C%20USA!5e0!3m2!1sen!2sng!4v1759011351708!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
