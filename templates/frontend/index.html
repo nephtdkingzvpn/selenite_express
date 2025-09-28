@@ -35,7 +35,7 @@
                             </p>
 
                             <div class="slider-btn mt-30 ">
-                                <a href="services.html" class="btn ss-btn mr-15">Track Shipment</a>
+                                <a href="{% url 'frontend:tracking' %}" class="btn ss-btn mr-15">Track Shipment</a>
                                 <!-- <a href="contact.html" class="btn ss-btn active mr-15">Contact Us</a> -->
 
                             </div>
@@ -63,7 +63,7 @@
                                 precision. Discover seamless logistics tailored to your business needs.
                             </p>
                             <div class="slider-btn mt-30">
-                                <a href="services.html" class="btn ss-btn mr-15">Read More</a>
+                                <a href="{% url 'frontend:about' %}" class="btn ss-btn mr-15">Read More</a>
                                 <!-- <a href="contact.html" class="btn ss-btn active mr-15">Contact Us</a> -->
 
                             </div>
@@ -97,7 +97,7 @@
                         <img src="{% static 'frontend/img/icon/se-icon1.png' %}" alt="img">
                     </div>
                     <div class="features-content">
-                        <h4><a href="services-detail.html">Warehousing Services</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">Warehousing Services</a></h4>
                         <p>Secure, scalable storage solutions with real-time inventory tracking to support your supply
                             chain efficiently.</p>
                     </div>
@@ -111,7 +111,7 @@
                         <img src="{% static 'frontend/img/icon/se-icon2.png' %}" alt="img">
                     </div>
                     <div class="features-content">
-                        <h4><a href="services-detail.html">Air Freight Services</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">Air Freight Services</a></h4>
                         <p>Fast and reliable air cargo services to ensure your shipments reach global destinations on
                             time.</p>
                     </div>
@@ -125,7 +125,7 @@
                         <img src="{% static 'frontend/img/icon/se-icon3.png' %}" alt="img">
                     </div>
                     <div class="features-content">
-                        <h4><a href="services-detail.html">Ocean Freight Services</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">Ocean Freight Services</a></h4>
                         <p>Cost-effective and dependable sea freight solutions for large-scale international shipping
                             needs.</p>
                     </div>
@@ -139,7 +139,7 @@
                         <img src="{% static 'frontend/img/icon/se-icon4.png' %}" alt="img">
                     </div>
                     <div class="features-content">
-                        <h4><a href="services-detail.html">Road Freight Services</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">Road Freight Services</a></h4>
                         <p>Flexible domestic and cross-border trucking services, ensuring timely deliveries across all
                             road networks.</p>
                     </div>
@@ -208,7 +208,7 @@
                     </ul>
 
                     <div class="slider-btn">
-                        <a href="about.html" class="btn ss-btn">Read More</a>
+                        <a href="{% url 'frontend:about' %}" class="btn ss-btn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -244,8 +244,8 @@
                         <img src="{% static 'frontend/img/services/services-img1.png' %}" alt="circle_right">
                     </div>
                     <div class="services-content2">
-                        <h3><a href="services-detail.html">Sea Freight<br> Transportation</a></h3>
-                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                        <h3><a href="{% url 'frontend:tracking' %}">Sea Freight<br> Transportation</a></h3>
+                        <a href="{% url 'frontend:tracking' %}" class="icon"><i class="fal fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -257,8 +257,8 @@
                         <img src="{% static 'frontend/img/services/services-img2.png' %}" alt="circle_right">
                     </div>
                     <div class="services-content2">
-                        <h3><a href="services-detail.html">Road Freight<br>Transportation</a></h3>
-                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                        <h3><a href="{% url 'frontend:tracking' %}">Road Freight<br>Transportation</a></h3>
+                        <a href="{% url 'frontend:tracking' %}" class="icon"><i class="fal fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -269,8 +269,8 @@
                         <img src="{% static 'frontend/img/services/services-img3.png' %}" alt="circle_right">
                     </div>
                     <div class="services-content2">
-                        <h3><a href="services-detail.html">Air Freight<br>Transportation</a></h3>
-                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                        <h3><a href="{% url 'frontend:tracking' %}">Air Freight<br>Transportation</a></h3>
+                        <a href="{% url 'frontend:tracking' %}" class="icon"><i class="fal fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -280,8 +280,8 @@
                         <img src="{% static 'frontend/img/services/services-img2.png' %}" alt="circle_right">
                     </div>
                     <div class="services-content2">
-                        <h3><a href="services-detail.html">Road Freight<br>Transportation</a></h3>
-                        <a href="services-detail.html" class="icon"><i class="fal fa-angle-double-right"></i></a>
+                        <h3><a href="{% url 'frontend:tracking' %}">Road Freight<br>Transportation</a></h3>
+                        <a href="{% url 'frontend:tracking' %}" class="icon"><i class="fal fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -496,7 +496,7 @@
                         professionals ensure safe, efficient, and on-time transportation across all delivery points.
                     </p>
                     <div class="slider-btn mt-15">
-                        <a href="contact.html" class="btn ss-btn">Track Shipment</a>
+                        <a href="{% url 'frontend:tracking' %}" class="btn ss-btn">Track Shipment</a>
                     </div>
                 </div>
             </div>
@@ -634,7 +634,7 @@
                     </div>
                     <div class="team-info">
                         <div class="text">
-                            <h4><a href="team-details.html">Nashid Martines</a></h4>
+                            <h4><a href="{% url 'frontend:about' %}">Nashid Martines</a></h4>
                             <span>Founder & Chief Strategy Officer</span>
                         </div>
                     </div>
@@ -665,7 +665,7 @@
                     </div>
                     <div class="team-info">
                         <div class="text">
-                            <h4><a href="team-details.html">Konne Backfield</a></h4>
+                            <h4><a href="{% url 'frontend:tracking' %}">Konne Backfield</a></h4>
                             <span>Chief Executive Officer</span>
                         </div>
                     </div>
@@ -696,7 +696,7 @@
                     </div>
                     <div class="team-info">
                         <div class="text">
-                            <h4><a href="team-details.html">Hackson Willing</a></h4>
+                            <h4><a href="{% url 'frontend:about' %}">Hackson Willing</a></h4>
                             <span>IT & Logistics Systems Manager</span>
                         </div>
                     </div>
@@ -727,7 +727,7 @@
                     </div>
                     <div class="team-info">
                         <div class="text">
-                            <h4><a href="team-details.html">James Grady</a></h4>
+                            <h4><a href="{% url 'frontend:contact' %}">James Grady</a></h4>
                             <span>Fleet Operations Manager</span>
                         </div>
 
@@ -760,7 +760,7 @@
                     </div>
                     <div class="team-info">
                         <div class="text">
-                            <h4><a href="team-details.html">Rosalina D. William</a></h4>
+                            <h4><a href="{% url 'frontend:tracking' %}">Rosalina D. William</a></h4>
                             <span>Customer Experience Lead</span>
                         </div>
 
@@ -813,10 +813,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <h4><a href="blog-details.html">How Same-Day Delivery is Changing E-Commerce Logistics</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">How Same-Day Delivery is Changing E-Commerce Logistics</a></h4>
                         <p>Explore how businesses are using same-day delivery services to meet rising customer
                             expectations and boost retention.</p>
-                        <div class="blog-btn"><a href="blog-details.html">Read More</a></div>
+                        <div class="blog-btn"><a href="{% url 'frontend:tracking' %}">Read More</a></div>
                     </div>
                 </div>
             </div>
@@ -838,10 +838,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <h4><a href="blog-details.html">5 Common Shipping Mistakes & How to Avoid Them</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">5 Common Shipping Mistakes & How to Avoid Them</a></h4>
                         <p>From incorrect labeling to missed pickups, avoid costly errors with these practical courier
                             shipping tips.</p>
-                        <div class="blog-btn"><a href="blog-details.html">Read More</a></div>
+                        <div class="blog-btn"><a href="{% url 'frontend:tracking' %}">Read More</a></div>
                     </div>
                 </div>
             </div>
@@ -863,10 +863,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <h4><a href="blog-details.html">The Role of Technology in Modern Courier Services</a></h4>
+                        <h4><a href="{% url 'frontend:tracking' %}">The Role of Technology in Modern Courier Services</a></h4>
                         <p>Learn how GPS tracking, automated dispatch, and customer portals are transforming the courier
                             industry from the inside out.</p>
-                        <div class="blog-btn"><a href="blog-details.html">Read More</a></div>
+                        <div class="blog-btn"><a href="{% url 'frontend:tracking' %}">Read More</a></div>
                     </div>
                 </div>
             </div>
