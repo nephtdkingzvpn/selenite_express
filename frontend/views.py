@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.template.loader import render_to_string
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from . import emailsend
 from account.models import Shipment, LiveUpdate
@@ -91,3 +93,23 @@ def tracking_view(request):
             return redirect('frontend:tracking')
 
     return render(request, 'frontend/tracking.html')
+
+def loginUser(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('account:dashboard')    
+        else:
+            messages.info(request, 'Username or Password is incorrect')
+    return render(request, 'frontend/login.html')
+
+
+@login_required()
+def logoutUser(request):
+	logout(request)
+	return redirect('frontend:login')

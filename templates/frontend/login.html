@@ -1,0 +1,56 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area d-flex align-items-center"
+    style="background-image:url(/static/frontend/img/testimonial/test-bg.png)">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="breadcrumb-wrap text-left">
+                    <div class="breadcrumb-title">
+                        <h2>Login</h2>
+                        <div class="breadcrumb-wrap">
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'frontend:home' %}">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Login</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-area-end -->
+
+<!-- login form area -->
+<section id="login-form " class="py-5">
+     <div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-5">
+            <div class="card px-2 py-2">
+                <h4 class="mt-3 text-center">LOGIN</h4>
+                {% include '../account/include/alert.html' %}
+                <hr class="mt-0">
+                <form action="#login-form" method="post">
+                    {% csrf_token %}
+                    <div class="contact-field p-relative c-name mb-30">
+                        <input type="text" id="firstn" name="username" placeholder="Enter Username" required>
+                    </div>
+                    <div class="contact-field p-relative c-name mb-30">
+                        <input type="password" id="firstn" name="password" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 mb-3">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+ </div>
+</section>
+ {% endblock %}

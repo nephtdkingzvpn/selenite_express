@@ -60,7 +60,7 @@
                         </table>
                     {% else %}
                         <div class="text-center">
-                            There is no shipment available to display right now, please <a href="">create a new shipment</a>
+                            There is no shipment available to display right now, please <a href="{% url 'account:create_shipment' %}">create a new shipment</a>
                         </div>
                     {% endif %}
                     </div>

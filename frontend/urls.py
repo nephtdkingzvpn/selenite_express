@@ -10,4 +10,6 @@ urlpatterns = [
     path('contact-us/', views.contact_view, name="contact"),
     path('tracking-shipment/', views.tracking_view, name="tracking"),
 
+    path('login/', views.loginUser, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
 ]
