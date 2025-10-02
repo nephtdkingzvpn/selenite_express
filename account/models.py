@@ -64,7 +64,8 @@ class LiveUpdate(models.Model):
     country = models.ForeignKey(CountryLocation, null=True, blank=True, on_delete=models.SET_NULL)
     status = models.CharField(max_length=150)
     remark = models.CharField(max_length=500, null=True, blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField()
+    date_created = models.DateTimeField(auto_now_add=True)
     stages_status = models.CharField(max_length=50, choices=constants.STATES_LIVE_CHOICES)
     stages_label = models.CharField(max_length=50, choices=constants.STATES_LABEL_CHOICES)
 

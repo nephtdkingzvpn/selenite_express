@@ -1,6 +1,7 @@
 
 
 STATES_LABEL_CHOICES = (
+    ('Processing', 'Processing'),
     ('Dispatched', 'Dispatched'),
     ('In Transit', 'In Transit'),
     ('Withheld', 'Withheld'),

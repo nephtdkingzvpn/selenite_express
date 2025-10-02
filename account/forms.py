@@ -28,19 +28,26 @@ class ShipmentCreateForm(forms.ModelForm):
 
 
 class LiveUpdateCreateForm(forms.ModelForm):
+    created_on = forms.DateTimeField(
+        widget=forms.DateTimeInput(
+            attrs={
+                'type': 'datetime-local',
+            }
+        ),
+        required=False
+    )
 
     class Meta:
         model = LiveUpdate
         fields = '__all__'
-        # exclude = ['created_on', 'shipment']
-        exclude = ['created_on', 'shipment', 'latitude','longitude']
+        exclude = ['date_created', 'shipment', 'latitude', 'longitude']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # self.fields['content'].widget = forms.Textarea(attrs={'rows':1, 'cols':15})
-        # self.fields['shipping_date'].widget = DateInput()
-        # self.fields['delivery_date'].widget = DateInput()
-
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control'})
+
+        # Pre-fill created_on with correctly formatted datetime if instance exists
+        if self.instance and self.instance.created_on:
+            self.initial['created_on'] = self.instance.created_on.strftime('%Y-%m-%dT%H:%M')

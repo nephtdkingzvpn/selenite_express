@@ -49,7 +49,7 @@ def delete_shipment(request, pk):
 @login_required
 def shipment_detail(request, pk):
     shipment = Shipment.objects.get(pk=pk)
-    live_update = LiveUpdate.objects.filter(shipment=shipment)
+    live_update = LiveUpdate.objects.filter(shipment=shipment).order_by('created_on')
     live_update_count = live_update.count()
     latest_update = live_update.last()
 

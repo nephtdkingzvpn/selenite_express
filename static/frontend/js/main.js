@@ -511,16 +511,16 @@ $('.s-single-services').on('mouseenter', function () {
 })
 
 // scrollToTop
-$.scrollUp({
-	scrollName: 'scrollUp',
-	topDistance: '300',
-	topSpeed: 300,
-	animation: 'fade',
-	animationInSpeed: 200,
-	animationOutSpeed: 200,
-	scrollText: '<i class="fas fa-level-up-alt"></i>',
-	activeOverlay: false,
-});
+// $.scrollUp({
+// 	scrollName: 'scrollUp',
+// 	topDistance: '300',
+// 	topSpeed: 300,
+// 	animation: 'fade',
+// 	animationInSpeed: 200,
+// 	animationOutSpeed: 200,
+// 	scrollText: '<i class="fas fa-level-up-alt"></i>',
+// 	activeOverlay: false,
+// });
 
 
 // isotop
