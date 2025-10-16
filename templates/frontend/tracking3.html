@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track Shipment</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .tracking-map {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+
+    #shipment-map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="mb-4">Track Your Shipment</h4>
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <input type="text" class="form-control" name="tracking_code" placeholder="Enter Tracking Code" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Track Shipment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="tracking-map">
+      <div id="shipment-map"></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Django live updates JSON -->
+  {{ live_updates_json|default:"[]"|json_script:"live_updates" }}
+
+  <script>
+    // Dummy data fallback
+    const dummyData = [
+      {
+        latitude: 51.505,
+        longitude: -0.09,
+        status: "Origin",
+        remark: "Dispatched from London",
+        country: "UK",
+        created_on: "2025-10-01T10:00:00Z"
+      },
+      {
+        latitude: 48.8566,
+        longitude: 2.3522,
+        status: "In Transit",
+        remark: "Arrived in Paris",
+        country: "France",
+        created_on: "2025-10-02T12:00:00Z"
+      },
+      {
+        latitude: 41.9028,
+        longitude: 12.4964,
+        status: "Delivered",
+        remark: "Delivered in Rome",
+        country: "Italy",
+        created_on: "2025-10-03T15:00:00Z"
+      }
+    ];
+
+    // Load live updates from Django JSON script, fallback to dummy
+    let updates = dummyData;
+    const liveUpdatesEl = document.getElementById('live_updates');
+    if (liveUpdatesEl) {
+      try {
+        updates = JSON.parse(liveUpdatesEl.textContent);
+      } catch (e) {
+        console.error('Failed to parse live updates JSON:', e);
+      }
+    }
+
+    const map = L.map('shipment-map').setView([0, 0], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    const latlngs = [];
+
+    // Icons
+    const airplaneIcon = L.icon({
+      iconUrl: 'https://img.icons8.com/emoji/48/airplane-emoji.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    const truckIcon = L.icon({
+      iconUrl: 'https://img.icons8.com/emoji/48/delivery-truck.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    // Add markers and popups
+    updates.forEach((update, index) => {
+      const latlng = [update.latitude, update.longitude];
+      latlngs.push(latlng);
+
+      let marker;
+      let popupContent = `<b>${update.status}</b><br>${update.remark || ''}<br>${new Date(update.created_on).toLocaleString()}`;
+
+      if (index === 0) {
+        marker = L.marker(latlng, { icon: airplaneIcon }).addTo(map);
+        popupContent = `<b>Origin:</b> ${popupContent}`;
+      } else if (index === updates.length - 1) {
+        marker = L.marker(latlng, { icon: truckIcon }).addTo(map);
+        popupContent = `<b>Current Location:</b> ${popupContent}`;
+      } else {
+        marker = L.circleMarker(latlng, {
+          color: 'blue',
+          radius: 6,
+          fillOpacity: 0.7
+        }).addTo(map);
+      }
+
+      marker.bindPopup(popupContent);
+      marker.bindTooltip(update.country, { direction: 'top', offset: [0, -10] });
+    });
+
+    // Draw polyline if multiple points
+    if (latlngs.length > 1) {
+      L.polyline(latlngs, { color: 'blue' }).addTo(map);
+      map.fitBounds(L.latLngBounds(latlngs), { padding: [50, 50] });
+    } else if (latlngs.length === 1) {
+      map.setView(latlngs[0], 6);
+    }
+
+    // Add legend
+    const legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function () {
+      const div = L.DomUtil.create('div', 'info legend');
+      div.innerHTML = `
+        <div style="background: white; padding: 6px 10px; border-radius: 5px; box-shadow: 0 0 8px rgba(0,0,0,0.2); font-size: 14px;">
+          <div><img src="https://img.icons8.com/emoji/24/airplane-emoji.png" style="vertical-align: middle;"> Origin</div>
+          <div><span style="display: inline-block; width: 12px; height: 12px; background: blue; border-radius: 50%; margin-right: 6px;"></span> In Transit</div>
+          <div><img src="https://img.icons8.com/emoji/24/delivery-truck.png" style="vertical-align: middle;"> Current Location</div>
+        </div>
+      `;
+      return div;
+    };
+
+    legend.addTo(map);
+  </script>
+
+</body>
+</html>

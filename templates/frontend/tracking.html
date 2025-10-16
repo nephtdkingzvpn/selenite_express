@@ -78,6 +78,11 @@
             </div>
         </div> -->
     </div>
+    <!-- Map Section -->
+    <div class="tracking-map">
+        <div id="shipment-map"></div>
+        </div>
+    </div>
 
     <div class="row mt-4">
         <div class="col-md-12">
@@ -162,5 +167,21 @@
 <!-- tracking result end -->
 {% endif %}
 
+
+<!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    const map = L.map('map').setView([51.505, -0.09], 5);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    L.marker([51.505, -0.09]).addTo(map)
+      .bindPopup('This is London.')
+      .openPopup();
+  </script>
 
 {% endblock %}

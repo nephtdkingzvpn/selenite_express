@@ -34,7 +34,7 @@ class LiveUpdateCreateForm(forms.ModelForm):
                 'type': 'datetime-local',
             }
         ),
-        required=False
+        required=True
     )
 
     class Meta:
